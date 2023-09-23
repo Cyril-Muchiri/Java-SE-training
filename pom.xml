@@ -13,7 +13,7 @@
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
   </properties>
-  
+
   <dependencies>
   <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
 <dependency>
@@ -29,6 +29,14 @@
     <version>5.10.0</version>
     <scope>test</scope>
 </dependency>
+
+<!-- https://mvnrepository.com/artifact/io.github.cdimascio/java-dotenv -->
+<dependency>
+    <groupId>io.github.cdimascio</groupId>
+    <artifactId>java-dotenv</artifactId>
+    <version>5.2.2</version>
+</dependency>
+
 
   </dependencies>
 </project>
