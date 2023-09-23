@@ -11,7 +11,7 @@ public class DbConfig {
     
  final String DB_URL=dotenv.get("ATM_URL");
  final String DB_USER=dotenv.get("DB_USER");
- final String DB_PASS=dotenv.get("D_PASS");
+ final String DB_PASS=dotenv.get("DB_PASS");
 
 void dbConnect(){
     try {
