@@ -1,0 +1,117 @@
+2023-09-26 09:35:59 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-26 09:36:05 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-26 09:36:24 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-26 09:36:37 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-09-26 09:36:55 | INFO | com.systechafrica.pos.PosReviewed displayMenu | user disconnected from db
+2023-09-26 10:06:16 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-26 10:07:19 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-26 14:20:52 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-26 14:21:00 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-26 14:21:02 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-26 19:29:34 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-26 19:54:19 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-26 19:54:20 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-26 19:54:21 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-26 19:54:34 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-26 19:54:44 | INFO | com.systechafrica.pos.PosReviewed displayMenu | user disconnected from db
+2023-09-26 21:33:41 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-26 21:37:10 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-26 21:40:16 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-26 21:42:21 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-26 21:42:34 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-26 21:42:44 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-27 10:25:20 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-27 10:41:58 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-27 10:48:09 | INFO | com.systechafrica.pos.PosReviewed displayMenu | user disconnected from db
+2023-09-27 10:54:25 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-27 10:54:28 | INFO | com.systechafrica.pos.PosReviewed displayMenu | user disconnected from db!
+2023-09-28 13:23:25 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-28 13:24:16 | WARNING | com.systechafrica.pos.PosReviewed makePayment | Invalid amount entered please enter a number!!
+2023-09-28 13:24:28 | WARNING | com.systechafrica.pos.PosReviewed makePayment | Invalid amount entered please enter a number!!
+2023-09-28 13:27:06 | WARNING | com.systechafrica.pos.PosReviewed makePayment | Invalid amount entered please enter a number!!
+2023-09-28 13:44:33 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-28 13:49:32 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-28 13:59:26 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-28 13:59:40 | WARNING | com.systechafrica.pos.PosReviewed addItem | invalid choice please try again!!
+2023-09-28 14:00:03 | INFO | com.systechafrica.pos.PosReviewed displayMenu | user disconnected from db!
+2023-09-28 14:00:12 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-28 14:00:15 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-28 23:14:28 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-28 23:14:32 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-09-28 23:14:55 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:14:55 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:14:55 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:14:55 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:14:55 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:15:07 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:15:08 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:15:08 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:15:08 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:15:08 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:15:08 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:17:01 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-28 23:17:56 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:17:56 | WARNING | com.systechafrica.pos.PosReviewed addItem | invalid choice please try again!!
+2023-09-28 23:17:56 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-09-28 23:18:34 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-09-28 23:18:44 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:30:26 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-28 23:32:09 | WARNING | com.systechafrica.pos.PosReviewed addItem | invalid choice please try again!!
+2023-09-28 23:44:57 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-28 23:45:38 | WARNING | com.systechafrica.pos.PosReviewed addItem | invalid choice please try again!!
+2023-09-29 00:00:52 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-29 00:03:47 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-29 00:03:52 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-09-29 01:19:04 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-29 01:19:21 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-09-29 01:21:50 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-29 01:22:11 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-09-29 06:52:47 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-29 06:53:10 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-09-29 06:57:15 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-29 06:57:40 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-29 06:58:05 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-09-30 12:51:05 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-30 12:51:09 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-30 12:51:10 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-30 12:51:29 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-30 12:51:34 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-09-30 12:52:08 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-10-02 09:26:30 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-10-02 09:26:48 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-10-02 09:29:46 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-02 09:30:00 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-02 09:30:02 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-02 09:30:19 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-10-02 09:30:21 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-10-02 09:30:30 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-10-02 09:30:31 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-10-02 09:30:32 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-10-02 09:30:32 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-10-02 09:31:12 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-10-16 14:04:41 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-16 14:05:27 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-16 14:05:29 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-16 14:41:11 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-16 14:41:18 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-16 14:41:38 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-16 14:45:22 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-16 14:48:45 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-10-16 14:50:37 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-10-16 14:51:43 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-10-16 14:51:45 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-10-16 14:51:47 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-10-16 14:56:23 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-10-16 14:57:40 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-10-16 14:57:51 | WARNING | com.systechafrica.pos.PosReviewed addItem | invalid choice please try again!!
+2023-10-16 14:58:10 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-10-17 21:21:56 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-17 21:22:07 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-10-17 21:22:46 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-10-17 21:30:58 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-10-17 21:31:17 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-10-20 07:05:29 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-10-20 07:05:38 | INFO | com.systechafrica.pos.PosReviewed displayMenu | user disconnected from db!
+2023-10-20 07:05:47 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-20 07:05:51 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-20 07:05:52 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
