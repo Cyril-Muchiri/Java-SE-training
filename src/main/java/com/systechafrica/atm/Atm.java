@@ -16,6 +16,8 @@ public class Atm extends Thread {
 
     static int count = 3;
 
+   static DbHelper helper=new DbHelper();
+
 
     static void startPrompts(int counter) throws InterruptedException {
         if (counter > 0) {
@@ -37,6 +39,7 @@ public class Atm extends Thread {
     }
 
     static void logIn(int customerNumber, String pass) throws InterruptedException {
+        
 
         if (customerNumber == 10  && pass.equals("Admin123")) {
 
