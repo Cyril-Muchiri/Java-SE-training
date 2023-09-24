@@ -34,6 +34,18 @@ public class DbHelper {
       
     }
 
+   static void closeResources(){
+        try {
+            statement.close();
+            connection.close();
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
+
     void dbConnect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -78,7 +90,7 @@ try {
 
 } catch (SQLException e) {
     // TODO Auto-generated catch block
-    e.printStackTrace();
+    System.out.println("something went terribly wrong");
 }
 return isOwner;
         
