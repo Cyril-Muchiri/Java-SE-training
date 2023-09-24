@@ -58,14 +58,9 @@ public class Atm extends Thread {
 
             startPrompts(count);
 
-            // }else{
-            // System.out.println("OOps!! you are out of attempts try again in 10
-            // minutes!!!");
-            // }
-
         }
 
-        // return count;
+        
     }
 
     static void displayMenu() throws InterruptedException {

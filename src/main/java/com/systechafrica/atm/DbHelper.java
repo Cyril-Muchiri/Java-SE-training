@@ -104,17 +104,12 @@ return isOwner;
            callableStatement.setInt(1, memberNumber);
            callableStatement.setDouble(2, moneyIn);
 int noOfRows=callableStatement.executeUpdate();
-           
-            // int noOfRows = preparedStatement.executeUpdate();
-            
-            // LOGGER.info(" " + noOfRows);
             if(noOfRows!=0){
                 System.out.println("Transaction successful");
             }
 
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            // e.printStackTrace();
+        
             System.out.println("Something went terribly wrong!!");
         }
     }
@@ -133,13 +128,9 @@ try {
         return balance;
     }
 } catch (SQLException e) {
-    // TODO Auto-generated catch block
     e.printStackTrace();
 }
 return returnedBalance;
-
-
-        
     }
 
 static boolean withdrawFunds(int memberNumber,double moneyOut){
@@ -152,11 +143,6 @@ try {
 callable.setInt(1, memberNumber);
 resultSet=callable.executeQuery();
 
-// while(resultSet.next()){
-//     currentBalance=resultSet.getDouble(4);
-//     System.out.println(currentBalance);
-// }
-
 while (resultSet.next()) {
     currentBalance=resultSet.getDouble(4);
 
@@ -167,11 +153,6 @@ while (resultSet.next()) {
            callableStatement.setDouble(2, moneyOut);
 int noOfRows=callableStatement.executeUpdate();
 
-
-           
-            // int noOfRows = preparedStatement.executeUpdate();
-            
-            // LOGGER.info(" " + noOfRows);
             if(noOfRows!=0){
                 System.out.println("Transaction successful");
             }
@@ -181,20 +162,14 @@ int noOfRows=callableStatement.executeUpdate();
         System.out.println("Inadequate funds!!");
         return isSuccessfull;
     }
-
-
     return isSuccessfull;
 }
-
        
 } catch (SQLException e) {
-    // TODO Auto-generated catch block
     e.printStackTrace();
 }
-// return isSuccessfull;
+
 return isSuccessfull;
-
-
     }
 
     static void showTable() {
