@@ -23,7 +23,7 @@ public class DbHelper {
     static PreparedStatement preparedStatement;
     static ResultSet resultSet;
     static java.sql.Statement statement;
-    boolean isOwner;
+   static boolean isOwner;
     static java.sql.CallableStatement callableStatement;
 
     void dbConnect() {
@@ -49,9 +49,9 @@ public class DbHelper {
     boolean checkUserCredentials(int customerNumber,String password){
         
 try {
-   boolean isOwner;
+  
     statement=connection.createStatement();
-    callableStatement=connection.prepareCall("{CALL selectMmber(?)}");
+    callableStatement=connection.prepareCall("{CALL selectMember(?)}");
     callableStatement.setInt(1,customerNumber);
     resultSet=callableStatement.executeQuery();
     // resultSet=statement.executeQuery("CALL selectMember()");
@@ -61,14 +61,12 @@ try {
 
       if(storedNumber==customerNumber && storedPassword.equals(password)){
         isOwner=true;
-        return isOwner;
+        
       }else{
         isOwner=false;
-        return isOwner;
+        
       }
     }
-    
-
 
 } catch (SQLException e) {
     // TODO Auto-generated catch block

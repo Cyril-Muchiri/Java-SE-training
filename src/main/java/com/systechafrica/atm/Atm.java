@@ -17,9 +17,11 @@ public class Atm extends Thread {
     static int count = 3;
 
    static DbHelper helper=new DbHelper();
+   
 
 
     static void startPrompts(int counter) throws InterruptedException {
+        helper.dbConnect();
         if (counter > 0) {
             System.out.println("Enter customer number : ");
             customerInput = scanner.nextInt();
@@ -30,6 +32,9 @@ public class Atm extends Thread {
             suppliedPass = scanner.nextLine();
 
             logIn(customerInput, suppliedPass);
+            
+            
+
 
         } else {
             System.out.println("OOps!! Can't continue Maximum attempts reached");
@@ -38,10 +43,9 @@ public class Atm extends Thread {
 
     }
 
+    
     static void logIn(int customerNumber, String pass) throws InterruptedException {
-        
-
-        if (customerNumber == 10  && pass.equals("Admin123")) {
+        if (helper.checkUserCredentials(customerNumber, pass)) {
 
             System.out.println("LOGIN SUCCESSFULL !!");
             Thread.sleep(3000);
