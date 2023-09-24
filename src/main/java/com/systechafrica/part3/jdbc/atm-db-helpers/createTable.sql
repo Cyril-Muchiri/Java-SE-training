@@ -1,9 +1,9 @@
 USE atm_db;
-
+DROP TABLE membersTable;
 CREATE TABLE
     membersTable(
-        memberNumber INT,
+         memberNumber INT PRIMARY KEY ,
         pass VARCHAR(100),
         userName VARCHAR(100),
-        accountNumber INT
+        funds INT
     );
