@@ -6,7 +6,7 @@ public class Atm extends Thread {
 
     static Scanner scanner = new Scanner(System.in);
 
-    static double originalBalance = 1000;
+    static double originalBalance;
     // static do newBalance;
     static double newWithdrawCash;
     static double withdrawCash;
@@ -16,9 +16,8 @@ public class Atm extends Thread {
 
     static int count = 3;
 
-   static DbHelper helper=new DbHelper();
-   
-
+    static DbHelper helper = new DbHelper();
+    private static int currentMemberNumber;
 
     static void startPrompts(int counter) throws InterruptedException {
         helper.dbConnect();
@@ -32,9 +31,6 @@ public class Atm extends Thread {
             suppliedPass = scanner.nextLine();
 
             logIn(customerInput, suppliedPass);
-            
-            
-
 
         } else {
             System.out.println("OOps!! Can't continue Maximum attempts reached");
@@ -43,18 +39,17 @@ public class Atm extends Thread {
 
     }
 
-    
     static void logIn(int customerNumber, String pass) throws InterruptedException {
         if (helper.checkUserCredentials(customerNumber, pass)) {
-
+            currentMemberNumber = customerNumber;
             System.out.println("LOGIN SUCCESSFULL !!");
             Thread.sleep(3000);
-            
+
             displayMenu();
         } else {
-            //count 2
+            // count 2
             count--;
-            //count 1
+            // count 1
             // if(count !=0){
             System.out.println("");
             System.out.println("INVALID CREDENTIALS!!");
@@ -129,34 +124,32 @@ public class Atm extends Thread {
 
         System.out.println("**********************");
         System.out.println("--------Cash Withdrwal--------\n");
-        System.out.println("Withrawbale balance : " + originalBalance+" ksh");
+
+        System.out.println("Withrawbale balance : " + helper.getBalance(currentMemberNumber) + " ksh");
 
         System.out.println("Enter amaount : ");
 
-         withdrawCash = scanner.nextDouble();
-         //2% ya transaction
-         newWithdrawCash = (1.02 * withdrawCash);
-
-        if (newWithdrawCash >= originalBalance) {
-            System.out.println("Transaction failed due to insufficient balance!!");
-            System.out.println("ABORTING!!");
-            Thread.sleep(3000);
-            displayMenu();
-        } else {
-            originalBalance -= newWithdrawCash;//balacnce left
-
+        withdrawCash = scanner.nextDouble();
+        // 2% ya transaction
+        newWithdrawCash = (1.02 * withdrawCash);
+        if (helper.withdrawFunds(currentMemberNumber, newWithdrawCash)) {
             System.out.println("Processing withdrawal");
-            System.out.println("withdrwal of ksh : "+withdrawCash+" is successfull");
-
+             System.out.println("withdrwal of ksh : " + withdrawCash + " is successfull");
             Thread.sleep(4000);
-            // checkBalance();
+            checkBalance();
             showReceipt();
+        }
+
+        else {
+            System.out.println("could not Process transacation");
+            
+
         }
 
     }
 
-    static void showReceipt() throws InterruptedException{
-          System.out.println("\n***********************");
+    static void showReceipt() throws InterruptedException {
+        System.out.println("\n***********************");
 
         System.out.println("ATM SIMULATOR");
 
@@ -164,11 +157,11 @@ public class Atm extends Thread {
 
         System.out.println("    Receipt\n");
 
-        System.out.println("CONFIRMED WITHDRAWAL OF: "+withdrawCash+" ksh\n");
+        System.out.println("CONFIRMED WITHDRAWAL OF: " + withdrawCash + " ksh\n");
 
-        System.out.println("Transaction cost: " +((float)(newWithdrawCash-withdrawCash)+" ksh")+"\n");
+        System.out.println("Transaction cost: " + ((float) (newWithdrawCash - withdrawCash) + " ksh") + "\n");
 
-        System.out.println("Current balance : " + originalBalance + " ksh\n");
+        System.out.println("Current balance : " + helper.getBalance(currentMemberNumber) + " ksh\n");
 
         Thread.sleep(4000);
 
@@ -184,7 +177,7 @@ public class Atm extends Thread {
 
         System.out.println("    check balance\n");
 
-        System.out.println("Current balance : " + (float)originalBalance + " ksh \n");
+        System.out.println("Current balance : " + helper.getBalance(currentMemberNumber) + " ksh \n");
 
         System.out.println("Reverting back to main menu");
         Thread.sleep(5000);
@@ -204,7 +197,8 @@ public class Atm extends Thread {
 
         double deposit = scanner.nextDouble();
 
-        originalBalance += deposit;
+        // originalBalance += deposit;
+        helper.depositFunds(currentMemberNumber, deposit);
 
         System.out.println("Successfull deposit of : " + deposit + " ksh\n");
 
@@ -214,7 +208,7 @@ public class Atm extends Thread {
 
     }
 
-    static void transferCash() throws InterruptedException  {
+    static void transferCash() throws InterruptedException {
         System.out.println("Service unavailable !!");
         Thread.sleep(2000);
         displayMenu();
@@ -238,13 +232,9 @@ public class Atm extends Thread {
         String cont = scanner.nextLine();
 
         if (!cont.isEmpty()) {
-        
+
             startPrompts(count);
 
-        } else {
-            System.out.println("You didnt press any button to continue");
         }
     }
 }
-    
-

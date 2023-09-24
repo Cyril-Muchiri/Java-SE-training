@@ -5,5 +5,5 @@ CREATE TABLE
          memberNumber INT PRIMARY KEY ,
         pass VARCHAR(100),
         userName VARCHAR(100),
-        funds INT
+        funds DOUBLE
     );
