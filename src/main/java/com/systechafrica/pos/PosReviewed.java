@@ -57,6 +57,7 @@ public class PosReviewed {
                 makePayment();
                 break;
             case 3:
+                showReceipt();
                 break;
             case 4:
                 System.exit(0);
@@ -98,34 +99,48 @@ public class PosReviewed {
     private void makePayment() {
         System.out.println("-----------------------------------------------------");
         System.out.printf("%-15s%-15s%-15s%-15s\n", "Item code", "Quantity", "Unit Price", "Total Value");
-        double finalTotals=0;
+        double finalTotals = 0;
         double totalPrice;
         double customerAmount;
 
         for (int i = 0; i < itemObj.mem; i++) {
-            if(userItemCode[i]!=0){
+            if (userItemCode[i] != 0) {
                 totalPrice = userItemQuantity[i] * userItemPrice[i];
-            System.out.printf("%-15s%-15s%-15s%-15s\n", userItemCode[i], userItemQuantity[i], userItemPrice[i], totalPrice);
-
-            finalTotals += totalPrice;
+                System.out.printf("%-15s%-15s%-15s%-15s\n", userItemCode[i], userItemQuantity[i], userItemPrice[i],
+                        totalPrice);
+                finalTotals += totalPrice;
             }
-            
 
         }
         System.out.println("*****************************************************");
         System.out.println("TOTAL   - " + finalTotals + " ksh");
         System.out.println("******************************************");
-
-        System.out.print("Enter amount by customer: ");
-        customerAmount = posScanner.nextInt();
-
-        if (customerAmount >= finalTotals) {
-            System.out.println("Change  - " + (customerAmount - finalTotals) + " ksh");
-            System.out.println("******************************************");
-            System.out.println("THANK YOU FOR SHOPPING WITH US");
-            System.out.println("******************************************");
+        if (finalTotals == 0) {
+            System.out.println("Nothing to display here!!");
+            displayMenu();
         } else {
-            System.out.println("cannot process payment insuficient funds!!!");
+            System.out.print("Enter amount by customer: ");
+            customerAmount = posScanner.nextInt();
+
+            if (customerAmount >= finalTotals) {
+                System.out.println("Change  - " + (customerAmount - finalTotals) + " ksh");
+                System.out.println("******************************************");
+                System.out.println("THANK YOU FOR SHOPPING WITH US");
+                System.out.println("******************************************");
+            } else {
+                System.out.println("cannot process payment insuficient funds!!!");
+            }
+        }
+
+    }
+
+    void showReceipt() {
+        if (itemObj.equals(null)) {
+            System.out.println("No receipt available");
+            System.out.println("Add items to cart");
+            displayMenu();
+        } else {
+            makePayment();
         }
     }
 
