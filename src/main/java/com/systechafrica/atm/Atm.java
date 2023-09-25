@@ -4,19 +4,19 @@ import java.util.Scanner;
 
 public class Atm extends Thread {
 
-    static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
-    static double originalBalance;
+     double originalBalance;
     // static do newBalance;
-    static double newWithdrawCash;
-    static double withdrawCash;
+     double newWithdrawCash;
+     double withdrawCash;
 
-    static int customerInput;
-    static String suppliedPass;
+     int customerInput;
+     String suppliedPass;
 
-    static int count = 3;
+     static int count=3;
 
-    static DbHelper helper = new DbHelper();
+     DbHelper helper = new DbHelper();
     private static int currentMemberNumber;
 
      void startPrompts(int counter) throws InterruptedException {
@@ -47,10 +47,7 @@ public class Atm extends Thread {
 
             displayMenu();
         } else {
-            // count 2
             count--;
-            // count 1
-            // if(count !=0){
             System.out.println("");
             System.out.println("INVALID CREDENTIALS!!");
             System.out.println(count + " attempts remaining!!");
@@ -63,8 +60,6 @@ public class Atm extends Thread {
     }
 
      void displayMenu() throws InterruptedException {
-        // System.out.println("you are in the menu");
-
         System.out.println("\n***********************");
 
         System.out.println("ATM SIMULATOR");
@@ -129,9 +124,10 @@ public class Atm extends Thread {
         if (helper.withdrawFunds(currentMemberNumber, newWithdrawCash)) {
             System.out.println("Processing withdrawal");
             System.out.println("withdrwal of ksh : " + withdrawCash + " is successfull");
+            showReceipt();
             Thread.sleep(4000);
             checkBalance();
-            showReceipt();
+            
         }
 
         else {
@@ -213,7 +209,7 @@ public class Atm extends Thread {
         String key = scanner.next();
 
         if (!key.isEmpty()) {
-            return;
+            System.exit(0);
         }
 
     }

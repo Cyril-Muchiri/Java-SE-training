@@ -23,18 +23,10 @@ public class DbHelper {
     static PreparedStatement preparedStatement;
     static ResultSet resultSet;
     static java.sql.Statement statement;
-   static boolean isOwner;
+    static boolean isOwner;
     static java.sql.CallableStatement callableStatement;
 
-    public static void main(String[] args) {
-        DbHelper helper=new DbHelper();
-        helper.dbConnect();
-        // withdrawFunds(1, 1000);
-        System.out.println(helper.getBalance(1));
-      
-    }
-
-    void closeResources(){
+    void closeResources() {
         try {
             statement.close();
             connection.close();
@@ -55,121 +47,121 @@ public class DbHelper {
 
         } catch (ClassNotFoundException e) {
             // TODO Auto-generated catch block
-            // e.printStackTrace();
+            
 
             System.out.println("Unexctpected error occured!!");
         } catch (SQLException err) {
             // TODO Auto-generated catch block
-            // e.printStackTrace();
+           
             System.out.println("Error connecting to database!!");
         }
 
     }
 
-    boolean checkUserCredentials(int customerNumber,String password){
-        
-try {
-  
-    statement=connection.createStatement();
-    callableStatement=connection.prepareCall("{CALL selectMember(?)}");
-    callableStatement.setInt(1,customerNumber);
-    resultSet=callableStatement.executeQuery();
-    // resultSet=statement.executeQuery("CALL selectMember()");
-    while(resultSet.next()){
-      int  storedNumber=resultSet.getInt(1);
-      String  storedPassword=resultSet.getString(2);
+    boolean checkUserCredentials(int customerNumber, String password) {
 
-      if(storedNumber==customerNumber && storedPassword.equals(password)){
-        isOwner=true;
-        
-      }else{
-        isOwner=false;
-        
-      }
-    }
-
-} catch (SQLException e) {
-    // TODO Auto-generated catch block
-    System.out.println("something went terribly wrong");
-}
-return isOwner;
-        
-    }
-
-     void depositFunds(int memberNumber,double moneyIn) {
         try {
 
-           statement=connection.createStatement();
-           callableStatement=connection.prepareCall( "{CALL depositFunds(?,?)}");
-           callableStatement.setInt(1, memberNumber);
-           callableStatement.setDouble(2, moneyIn);
-int noOfRows=callableStatement.executeUpdate();
-            if(noOfRows!=0){
+            statement = connection.createStatement();
+            callableStatement = connection.prepareCall("{CALL selectMember(?)}");
+            callableStatement.setInt(1, customerNumber);
+            resultSet = callableStatement.executeQuery();
+            // resultSet=statement.executeQuery("CALL selectMember()");
+            while (resultSet.next()) {
+                int storedNumber = resultSet.getInt(1);
+                String storedPassword = resultSet.getString(2);
+
+                if (storedNumber == customerNumber && storedPassword.equals(password)) {
+                    isOwner = true;
+
+                } else {
+                    isOwner = false;
+
+                }
+            }
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            System.out.println("something went terribly wrong");
+        }
+        return isOwner;
+
+    }
+
+    void depositFunds(int memberNumber, double moneyIn) {
+        try {
+
+            statement = connection.createStatement();
+            callableStatement = connection.prepareCall("{CALL depositFunds(?,?)}");
+            callableStatement.setInt(1, memberNumber);
+            callableStatement.setDouble(2, moneyIn);
+            int noOfRows = callableStatement.executeUpdate();
+            if (noOfRows != 0) {
                 System.out.println("Transaction successful");
             }
 
         } catch (SQLException e) {
-        
+
             System.out.println("Something went terribly wrong!!");
         }
     }
 
-    static double getBalance(int memberNumber){
-        double returnedBalance=0;
-try {
-    
-         statement=connection.createStatement();
-         java.sql.CallableStatement callable=connection.prepareCall("{CALL selectMember(?)}");
-    callable.setInt(1, memberNumber);
-    resultSet=callable.executeQuery();
-    while(resultSet.next()){
-      double  balance=resultSet.getDouble(4);
-      returnedBalance+=balance;
-        return balance;
-    }
-} catch (SQLException e) {
-    e.printStackTrace();
-}
-return returnedBalance;
-    }
+    static double getBalance(int memberNumber) {
+        double returnedBalance = 0;
+        try {
 
-static boolean withdrawFunds(int memberNumber,double moneyOut){
-        boolean isSuccessfull=false;
-try {
-    
-    double currentBalance;
-         statement=connection.createStatement();
-         java.sql.CallableStatement callable=connection.prepareCall("{CALL selectMember(?)}");
-callable.setInt(1, memberNumber);
-resultSet=callable.executeQuery();
-
-while (resultSet.next()) {
-    currentBalance=resultSet.getDouble(4);
-
-    if(currentBalance>moneyOut){
-        isSuccessfull=true;
-            callableStatement=connection.prepareCall( "{CALL withdrawFunds(?,?)}");
-           callableStatement.setInt(1, memberNumber);
-           callableStatement.setDouble(2, moneyOut);
-int noOfRows=callableStatement.executeUpdate();
-
-            if(noOfRows!=0){
-                System.out.println("Transaction successful");
+            statement = connection.createStatement();
+            java.sql.CallableStatement callable = connection.prepareCall("{CALL selectMember(?)}");
+            callable.setInt(1, memberNumber);
+            resultSet = callable.executeQuery();
+            while (resultSet.next()) {
+                double balance = resultSet.getDouble(4);
+                returnedBalance += balance;
+                return balance;
             }
-    }else{
-        isSuccessfull=false;
-        
-        System.out.println("Inadequate funds!!");
-        return isSuccessfull;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return returnedBalance;
     }
-    return isSuccessfull;
-}
-       
-} catch (SQLException e) {
-    e.printStackTrace();
-}
 
-return isSuccessfull;
+    static boolean withdrawFunds(int memberNumber, double moneyOut) {
+        boolean isSuccessfull = false;
+        try {
+
+            double currentBalance;
+            statement = connection.createStatement();
+            java.sql.CallableStatement callable = connection.prepareCall("{CALL selectMember(?)}");
+            callable.setInt(1, memberNumber);
+            resultSet = callable.executeQuery();
+
+            while (resultSet.next()) {
+                currentBalance = resultSet.getDouble(4);
+
+                if (currentBalance > moneyOut) {
+                    isSuccessfull = true;
+                    callableStatement = connection.prepareCall("{CALL withdrawFunds(?,?)}");
+                    callableStatement.setInt(1, memberNumber);
+                    callableStatement.setDouble(2, moneyOut);
+                    int noOfRows = callableStatement.executeUpdate();
+
+                    if (noOfRows != 0) {
+                        System.out.println("Transaction successful");
+                    }
+                } else {
+                    isSuccessfull = false;
+
+                    System.out.println("Inadequate funds!!");
+                    return isSuccessfull;
+                }
+                return isSuccessfull;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return isSuccessfull;
     }
 
     static void showTable() {
@@ -177,12 +169,10 @@ return isSuccessfull;
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM membersTable");
 
-
-
             while (resultSet.next()) {
                 String data = resultSet.getString(1) + " | " + resultSet.getString(2) + " | " + resultSet.getString(3)
                         + " | " + resultSet.getString(4) + " | ";
-                        System.out.println(data);
+                System.out.println(data);
             }
         } catch (SQLException e) {
             // TODO Auto-generated catch block

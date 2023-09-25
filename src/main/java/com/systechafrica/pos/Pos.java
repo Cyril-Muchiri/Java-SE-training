@@ -3,8 +3,6 @@ package com.systechafrica.pos;
 import java.util.Scanner;
 
 public class Pos {
-
-    
     private Scanner posScanner = new Scanner(System.in);
     Items itemsObj = new Items();
     final int MAXCART = 5;
@@ -91,30 +89,30 @@ public class Pos {
 
     void cashier() {
         for (int i = 0; i < cartItems.length; i++) {
-            
-if(cartItems[i]!=null){
-    System.out.println("Complete checkout for " + cartItems[i]);
-   System.out.print("item code: ");
-            
-            itemCodes[i] = posScanner.nextInt();
 
-            posScanner.nextLine();
+            if (cartItems[i] != null) {
+                System.out.println("Complete checkout for " + cartItems[i]);
+                System.out.print("item code: ");
 
-            System.out.print("item quantity: ");
+                itemCodes[i] = posScanner.nextInt();
 
-            itemQuantity[i] = posScanner.nextInt();
-            posScanner.nextLine();
+                posScanner.nextLine();
 
-            System.out.print("item price: ");
-            itemPrice[i] = posScanner.nextInt();
-}else{
-    itemCodes[i] = 0;
-    posScanner.nextLine();
-    itemQuantity[i] = 0;
-            posScanner.nextLine();
-            itemPrice[i] = 0;
-}
-         
+                System.out.print("item quantity: ");
+
+                itemQuantity[i] = posScanner.nextInt();
+                posScanner.nextLine();
+
+                System.out.print("item price: ");
+                itemPrice[i] = posScanner.nextInt();
+            } else {
+                itemCodes[i] = 0;
+                posScanner.nextLine();
+                itemQuantity[i] = 0;
+                posScanner.nextLine();
+                itemPrice[i] = 0;
+            }
+
         }
         displayCheckOut();
     }
