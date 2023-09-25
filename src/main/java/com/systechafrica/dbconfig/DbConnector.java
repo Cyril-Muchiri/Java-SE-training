@@ -1,4 +1,4 @@
-package com.systechafrica;
+package com.systechafrica.dbconfig;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

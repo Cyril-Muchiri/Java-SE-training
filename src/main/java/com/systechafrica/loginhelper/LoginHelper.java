@@ -2,7 +2,8 @@ package com.systechafrica.loginhelper;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.systechafrica.DbConnector;
+
+import com.systechafrica.dbconfig.DbConnector;
 
 public class LoginHelper {
     java.sql.Statement statement;
