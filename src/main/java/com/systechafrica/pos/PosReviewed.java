@@ -52,35 +52,36 @@ public class PosReviewed {
         System.out.println("4.Quit\n");
         System.out.println("------------------------------------------");
         System.out.print("choose your option : ");
-try {
-    
-    if (!posScanner.hasNextInt()) {
-        posScanner.next(); 
-        throw new InvalidInputException("Invalid input type. Please enter a valid choice.");
-    }
-        int choice = posScanner.nextInt();
+        try {
 
-        switch (choice) {
-            
-            case 1:
-                addItem();
-                break;
-            case 2:
-                makePayment();
-                break;
-            case 3:
-                showReceipt();
-                break;
-            case 4:
-                System.exit(0);
-            default:
-                System.out.println("Invalid option!!,please try again!!");
-                displayMenu();
+            if (!posScanner.hasNextInt()) {
+                posScanner.next();
+                throw new InvalidInputException("Invalid input type. Please enter a valid choice.");
+            }
+            int choice = posScanner.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                    addItem();
+                    break;
+                case 2:
+                    makePayment();
+                    break;
+                case 3:
+                    showReceipt();
+                    break;
+                case 4:
+                    logger.info("user disconnected from db");
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid option!!,please try again!!");
+                    displayMenu();
+            }
+        } catch (InvalidInputException e) {
+            logger.warning(e.getMessage());
+            displayMenu();
         }
-} catch (InvalidInputException e) {
-   logger.warning(e.getMessage());
-   displayMenu();
-}
     }
 
     private void addItem() {
