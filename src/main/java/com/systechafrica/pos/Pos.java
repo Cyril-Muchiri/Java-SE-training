@@ -153,7 +153,6 @@ public class Pos {
         System.out.println("------------------------------------------");
         System.out.println("         Systech POS System");
         System.out.println("------------------------------------------");
-
         System.out.println("1.ADD ITEM\n");
         System.out.println("2.MAKE PAYMENT\n");
         System.out.println("3.DISPLAY RECEIPT\n");
@@ -184,7 +183,6 @@ public class Pos {
 
     public static void main(String[] args) throws InterruptedException {
         Pos p = new Pos();
-        // p.addItem();
         p.login();
         if (p.isLoggedIn) {
             p.displayMenu();

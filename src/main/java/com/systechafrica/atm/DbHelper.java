@@ -42,17 +42,10 @@ public class DbHelper {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-
             System.out.println("--------Database connected successfully------!!");
-
         } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
-            
-
             System.out.println("Unexctpected error occured!!");
         } catch (SQLException err) {
-            // TODO Auto-generated catch block
-           
             System.out.println("Error connecting to database!!");
         }
 
