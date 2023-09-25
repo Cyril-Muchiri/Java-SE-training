@@ -1,0 +1,4 @@
+Sep 26, 2023 12:56:29 AM com.systechafrica.pos.PosReviewed login
+INFO: Db login successfull
+Sep 26, 2023 12:56:49 AM com.systechafrica.pos.PosReviewed displayMenu
+WARNING: Invalid input type. Please enter a valid choice.

@@ -1,11 +1,15 @@
 package com.systechafrica.pos;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
+import com.systechafrica.customexceptions.InvalidInputException;
+import com.systechafrica.dbloggers.FileLogger;
 import com.systechafrica.loginhelper.LoginHelper;
 
 public class PosReviewed {
     private Scanner posScanner = new Scanner(System.in);
+    private Logger logger = FileLogger.getLogger();
     String suppliedPwd;
     boolean isLoggedIn;
 
@@ -22,10 +26,11 @@ public class PosReviewed {
             System.out.println("Enter Password: ");
             suppliedPwd = posScanner.nextLine();
             if (login.checkUserCredentials(1, suppliedPwd)) {
-                System.out.println("Login succesfull!!");
+                logger.info("Db login successfull");
                 isLoggedIn = true;
                 attepmts = 0;
             } else {
+                logger.warning("Db login Attempt failed!!");
                 attepmts--;
                 System.out.println("INVALID CREDENTIALS ,PLEASE TRY AGAIN!!! ");
                 System.out.println(attepmts + " attempts remaining!!\n");
@@ -47,9 +52,16 @@ public class PosReviewed {
         System.out.println("4.Quit\n");
         System.out.println("------------------------------------------");
         System.out.print("choose your option : ");
-
+try {
+    
+    if (!posScanner.hasNextInt()) {
+        posScanner.next(); 
+        throw new InvalidInputException("Invalid input type. Please enter a valid choice.");
+    }
         int choice = posScanner.nextInt();
+
         switch (choice) {
+            
             case 1:
                 addItem();
                 break;
@@ -65,6 +77,9 @@ public class PosReviewed {
                 System.out.println("Invalid option!!,please try again!!");
                 displayMenu();
         }
+} catch (InvalidInputException e) {
+   logger.warning(e.getMessage());
+}
     }
 
     private void addItem() {
@@ -110,7 +125,6 @@ public class PosReviewed {
                         totalPrice);
                 finalTotals += totalPrice;
             }
-
         }
         System.out.println("*****************************************************");
         System.out.println("TOTAL   - " + finalTotals + " ksh");
@@ -131,7 +145,6 @@ public class PosReviewed {
                 System.out.println("cannot process payment insuficient funds!!!");
             }
         }
-
     }
 
     void showReceipt() {
@@ -150,7 +163,7 @@ public class PosReviewed {
         if (pos.isLoggedIn) {
             pos.displayMenu();
         } else {
-            System.out.println("Fatal error!!");
+            System.out.println("CAN'T CONTINUE TOO MANY FAILED ATTEMPTS !!");
         }
 
     }
