@@ -79,6 +79,7 @@ try {
         }
 } catch (InvalidInputException e) {
    logger.warning(e.getMessage());
+   displayMenu();
 }
     }
 
