@@ -34,7 +34,7 @@ public class DbHelper {
       
     }
 
-   static void closeResources(){
+    void closeResources(){
         try {
             statement.close();
             connection.close();
@@ -96,7 +96,7 @@ return isOwner;
         
     }
 
-    static void depositFunds(int memberNumber,double moneyIn) {
+     void depositFunds(int memberNumber,double moneyIn) {
         try {
 
            statement=connection.createStatement();
