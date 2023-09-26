@@ -19,7 +19,6 @@ public class PosReviewed {
     int suppliedMemberNumber;
 
     Item itemObj = new Item();
-
     private int userItemCode[] = new int[itemObj.mem];
     private int userItemPrice[] = new int[itemObj.mem];
     private int userItemQuantity[] = new int[itemObj.mem];
