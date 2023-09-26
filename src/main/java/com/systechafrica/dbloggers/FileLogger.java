@@ -1,5 +1,6 @@
 package com.systechafrica.dbloggers;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
@@ -10,9 +11,18 @@ public class FileLogger {
 
     static {
         try {
-            FileHandler fileHandler = new FileHandler("log.txt");
-            fileHandler.setFormatter(new CustomFormatter());
-            logger.addHandler(fileHandler);
+            File file = new File("log.txt");
+             FileHandler fileHandler;
+            if (!file.exists()) {
+               fileHandler = new FileHandler("log.txt");
+                fileHandler.setFormatter(new CustomFormatter());
+                logger.addHandler(fileHandler);
+            }else{
+ fileHandler = new FileHandler("log.txt",true);
+                fileHandler.setFormatter(new CustomFormatter());
+                logger.addHandler(fileHandler);
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }

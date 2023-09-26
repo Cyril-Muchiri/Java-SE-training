@@ -19,7 +19,7 @@ public class CustomFormatter extends Formatter {
 String message= record.getMessage();
 LocalDateTime now=LocalDateTime.now();
 
-return pattern.format(now)+"|"+level+"|"+classMethod+"|"+message;
+return pattern.format(now)+"|"+level+"|"+classMethod+"|"+message+"\n";
         // throw new UnsupportedOperationException("Unimplemented method 'format'");
     }
     
