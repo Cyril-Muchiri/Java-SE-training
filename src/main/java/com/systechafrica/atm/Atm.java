@@ -18,12 +18,10 @@ public class Atm extends Thread {
 
     int customerInput;
     String suppliedPass;
-
     static int count = 3;
 
     AtmBackend backend = new AtmBackend();
     private static int currentMemberNumber;
-     
 
     void startPrompts() throws InterruptedException {
         DbConnector.setDB_URL(dotenv.get("ATM_URL"));
@@ -31,13 +29,11 @@ public class Atm extends Thread {
         while (count > 0) {
             System.out.println("Enter customer number : ");
             customerInput = scanner.nextInt();
-
             scanner.nextLine();
-
             System.out.println("Enter customer password : ");
             suppliedPass = scanner.nextLine();
             if (helper.checkUserCredentials(customerInput, suppliedPass)) {
-                currentMemberNumber=customerInput;
+                currentMemberNumber = customerInput;
                 displayMenu();
                 count = 0;
             } else {
@@ -47,31 +43,23 @@ public class Atm extends Thread {
                 System.out.println(count + " attempts remaining!!");
                 System.out.println("TRY AGAIN!!\n");
             }
-        }System.out.println("Oops !! CAN'T CONTINUE");
-
+        }
+        System.out.println("Oops !! CAN'T CONTINUE");
     }
 
     void displayMenu() throws InterruptedException {
         System.out.println("\n***********************");
-
         System.out.println("ATM SIMULATOR");
-
         System.out.println("**********************");
-
         System.out.println("ATM SERVICES");
-
         System.out.println("___________________________\n");
-
         System.out.println("1. Check Balance");
         System.out.println("2. Deposit");
         System.out.println("3. Withdraw");
         System.out.println("4. Transfer cash");
         System.out.println("5. Quit");
-
         System.out.println("___________________________");
-
         int menuChoice = scanner.nextInt();
-
         switch (menuChoice) {
             case 1:
                 checkBalance();
@@ -113,14 +101,9 @@ public class Atm extends Thread {
             showReceipt();
             Thread.sleep(4000);
             checkBalance();
-
-        }
-
-        else {
+        } else {
             System.out.println("could not Process transacation");
-
         }
-
     }
 
     void showReceipt() throws InterruptedException {
@@ -132,7 +115,6 @@ public class Atm extends Thread {
         System.out.println("Transaction cost: " + ((float) (newWithdrawCash - withdrawCash) + " ksh") + "\n");
         System.out.println("Current balance : " + backend.getBalance(currentMemberNumber) + " ksh\n");
         Thread.sleep(4000);
-
         displayMenu();
     }
 
@@ -168,28 +150,21 @@ public class Atm extends Thread {
         Thread.sleep(2000);
         displayMenu();
     }
-    
+
     void quit() {
         System.out.println("Press any key to quit this session");
         String key = scanner.next();
-
         if (!key.isEmpty()) {
             System.exit(0);
         }
-
     }
 
     public static void main(String[] args) throws InterruptedException {
         Atm atmobj = new Atm();
-
         System.out.println("Welcome to ATM SIMULATOR, press any key to continue");
-
         String cont = scanner.nextLine();
-
         if (!cont.isEmpty()) {
-
             atmobj.startPrompts();
-
         }
     }
 }
