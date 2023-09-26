@@ -1,4 +1,4 @@
-
+use atm_db;
 DROP PROCEDURE IF EXISTS withdrawFunds;
 CREATE PROCEDURE withdrawFunds(IN memberNumber INT,IN moneyOut DOUBLE)
 BEGIN

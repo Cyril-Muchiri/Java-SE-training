@@ -1,3 +1,4 @@
+use atm_db;
 DROP PROCEDURE IF EXISTS depositFunds;
 CREATE PROCEDURE depositFunds(IN memberNumber INT,IN moneyIn DOUBLE)
 BEGIN

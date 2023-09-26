@@ -12,6 +12,7 @@ public class PosReviewed {
     private Logger logger = FileLogger.getLogger();
     String suppliedPwd;
     boolean isLoggedIn;
+    int suppliedMemberNumber;
 
     Item itemObj = new Item();
 
@@ -25,7 +26,7 @@ public class PosReviewed {
         while (attepmts != 0) {
             System.out.println("Enter Password: ");
             suppliedPwd = posScanner.nextLine();
-            if (login.checkUserCredentials(1, suppliedPwd)) {
+            if (login.checkUserCredentials(suppliedMemberNumber, suppliedPwd)) {
                 logger.info("Db login successfull");
                 isLoggedIn = true;
                 attepmts = 0;

@@ -2,26 +2,33 @@ package com.systechafrica.atm;
 
 import java.util.Scanner;
 
+import com.systechafrica.dbconfig.DbConnector;
+import com.systechafrica.loginhelper.LoginHelper;
+
+import io.github.cdimascio.dotenv.Dotenv;
+
 public class Atm extends Thread {
 
     private static Scanner scanner = new Scanner(System.in);
 
-     double originalBalance;
-    // static do newBalance;
-     double newWithdrawCash;
-     double withdrawCash;
+    double originalBalance;
+    Dotenv dotenv = Dotenv.configure().load();
+    double newWithdrawCash;
+    double withdrawCash;
 
-     int customerInput;
-     String suppliedPass;
+    int customerInput;
+    String suppliedPass;
 
-     static int count=3;
+    static int count = 3;
 
-     DbHelper helper = new DbHelper();
+    AtmBackend backend = new AtmBackend();
     private static int currentMemberNumber;
+     
 
-     void startPrompts(int counter) throws InterruptedException {
-        helper.dbConnect();
-        if (counter > 0) {
+    void startPrompts() throws InterruptedException {
+        DbConnector.setDB_URL(dotenv.get("ATM_URL"));
+        LoginHelper helper = new LoginHelper();
+        while (count > 0) {
             System.out.println("Enter customer number : ");
             customerInput = scanner.nextInt();
 
@@ -29,37 +36,22 @@ public class Atm extends Thread {
 
             System.out.println("Enter customer password : ");
             suppliedPass = scanner.nextLine();
-
-            logIn(customerInput, suppliedPass);
-
-        } else {
-            System.out.println("OOps!! Can't continue Maximum attempts reached");
-
-        }
-
-    }
-
-     void logIn(int customerNumber, String pass) throws InterruptedException {
-        if (helper.checkUserCredentials(customerNumber, pass)) {
-            currentMemberNumber = customerNumber;
-            System.out.println("LOGIN SUCCESSFULL !!");
-            Thread.sleep(3000);
-
-            displayMenu();
-        } else {
-            count--;
-            System.out.println("");
-            System.out.println("INVALID CREDENTIALS!!");
-            System.out.println(count + " attempts remaining!!");
-            System.out.println("TRY AGAIN!!\n");
-
-            startPrompts(count);
-
-        }
+            if (helper.checkUserCredentials(customerInput, suppliedPass)) {
+                currentMemberNumber=customerInput;
+                displayMenu();
+                count = 0;
+            } else {
+                count--;
+                System.out.println("");
+                System.out.println("INVALID CREDENTIALS!!");
+                System.out.println(count + " attempts remaining!!");
+                System.out.println("TRY AGAIN!!\n");
+            }
+        }System.out.println("Oops !! CAN'T CONTINUE");
 
     }
 
-     void displayMenu() throws InterruptedException {
+    void displayMenu() throws InterruptedException {
         System.out.println("\n***********************");
 
         System.out.println("ATM SIMULATOR");
@@ -105,29 +97,23 @@ public class Atm extends Thread {
 
     }
 
-     void withdraw() throws InterruptedException {
+    void withdraw() throws InterruptedException {
 
         System.out.println("\n***********************");
-
         System.out.println("ATM SIMULATOR");
-
         System.out.println("**********************");
         System.out.println("--------Cash Withdrwal--------\n");
-
-        System.out.println("Withrawbale balance : " + helper.getBalance(currentMemberNumber) + " ksh");
-
+        System.out.println("Withrawbale balance : " + backend.getBalance(currentMemberNumber) + " ksh");
         System.out.println("Enter amaount : ");
-
         withdrawCash = scanner.nextDouble();
-        // 2% ya transaction
         newWithdrawCash = (1.02 * withdrawCash);
-        if (helper.withdrawFunds(currentMemberNumber, newWithdrawCash)) {
+        if (backend.withdrawFunds(currentMemberNumber, newWithdrawCash)) {
             System.out.println("Processing withdrawal");
             System.out.println("withdrwal of ksh : " + withdrawCash + " is successfull");
             showReceipt();
             Thread.sleep(4000);
             checkBalance();
-            
+
         }
 
         else {
@@ -137,74 +123,53 @@ public class Atm extends Thread {
 
     }
 
-     void showReceipt() throws InterruptedException {
+    void showReceipt() throws InterruptedException {
         System.out.println("\n***********************");
-
         System.out.println("ATM SIMULATOR");
-
         System.out.println("**********************");
-
         System.out.println("    Receipt\n");
-
         System.out.println("CONFIRMED WITHDRAWAL OF: " + withdrawCash + " ksh\n");
-
         System.out.println("Transaction cost: " + ((float) (newWithdrawCash - withdrawCash) + " ksh") + "\n");
-
-        System.out.println("Current balance : " + helper.getBalance(currentMemberNumber) + " ksh\n");
-
+        System.out.println("Current balance : " + backend.getBalance(currentMemberNumber) + " ksh\n");
         Thread.sleep(4000);
 
         displayMenu();
     }
 
-     void checkBalance() throws InterruptedException {
+    void checkBalance() throws InterruptedException {
         System.out.println("\n***********************");
-
         System.out.println("ATM SIMULATOR");
-
         System.out.println("**********************");
-
         System.out.println("    check balance\n");
-
-        System.out.println("Current balance : " + helper.getBalance(currentMemberNumber) + " ksh \n");
-
+        System.out.println("Current balance : " + AtmBackend.getBalance(currentMemberNumber) + " ksh \n");
         System.out.println("Reverting back to main menu");
         Thread.sleep(5000);
         displayMenu();
 
     }
 
-     void deposit() throws InterruptedException {
+    void deposit() throws InterruptedException {
         System.out.println("\n***********************");
-
         System.out.println("ATM SIMULATOR");
-
         System.out.println("**********************");
         System.out.println("--------Cash Deposit--------\n");
-
         System.out.println("Enter amaount : ");
-
         double deposit = scanner.nextDouble();
-
-        // originalBalance += deposit;
-        helper.depositFunds(currentMemberNumber, deposit);
-
+        backend.depositFunds(currentMemberNumber, deposit);
         System.out.println("Successfull deposit of : " + deposit + " ksh\n");
-
         System.out.println("Procesing Balance");
         Thread.sleep(3000);
         checkBalance();
 
     }
 
-     void transferCash() throws InterruptedException {
+    void transferCash() throws InterruptedException {
         System.out.println("Service unavailable !!");
         Thread.sleep(2000);
         displayMenu();
     }
-
-     void quit() {
-
+    
+    void quit() {
         System.out.println("Press any key to quit this session");
         String key = scanner.next();
 
@@ -215,7 +180,7 @@ public class Atm extends Thread {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Atm atmobj=new Atm();
+        Atm atmobj = new Atm();
 
         System.out.println("Welcome to ATM SIMULATOR, press any key to continue");
 
@@ -223,7 +188,7 @@ public class Atm extends Thread {
 
         if (!cont.isEmpty()) {
 
-           atmobj. startPrompts(count);
+            atmobj.startPrompts();
 
         }
     }

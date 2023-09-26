@@ -9,8 +9,8 @@ import java.util.logging.Logger;
 
 import io.github.cdimascio.dotenv.Dotenv;
 
-public class DbHelper {
-    static Logger LOGGER = Logger.getLogger(DbHelper.class.getName());
+public class AtmBackend {
+    static Logger LOGGER = Logger.getLogger(AtmBackend.class.getName());
     Dotenv dotenv = Dotenv.configure().load();
 
     final String DB_URL = dotenv.get("ATM_URL");
@@ -31,55 +31,20 @@ public class DbHelper {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
-    void dbConnect() {
+    void connectDb() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-            System.out.println("--------Database connected successfully------!!");
-        } catch (ClassNotFoundException e) {
-            System.out.println("Unexctpected error occured!!");
-        } catch (SQLException err) {
-            System.out.println("Error connecting to database!!");
-        }
-
-    }
-
-    boolean checkUserCredentials(int customerNumber, String password) {
-
-        try {
-
-            statement = connection.createStatement();
-            callableStatement = connection.prepareCall("{CALL selectMember(?)}");
-            callableStatement.setInt(1, customerNumber);
-            resultSet = callableStatement.executeQuery();
-            // resultSet=statement.executeQuery("CALL selectMember()");
-            while (resultSet.next()) {
-                int storedNumber = resultSet.getInt(1);
-                String storedPassword = resultSet.getString(2);
-
-                if (storedNumber == customerNumber && storedPassword.equals(password)) {
-                    isOwner = true;
-
-                } else {
-                    isOwner = false;
-
-                }
-            }
-
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            System.out.println("something went terribly wrong");
+            e.printStackTrace();
         }
-        return isOwner;
-
     }
 
     void depositFunds(int memberNumber, double moneyIn) {
         try {
-
+            AtmBackend a = new AtmBackend();
+            a.connectDb();
             statement = connection.createStatement();
             callableStatement = connection.prepareCall("{CALL depositFunds(?,?)}");
             callableStatement.setInt(1, memberNumber);
@@ -88,17 +53,17 @@ public class DbHelper {
             if (noOfRows != 0) {
                 System.out.println("Transaction successful");
             }
-
         } catch (SQLException e) {
-
             System.out.println("Something went terribly wrong!!");
+            System.out.println(e);
         }
     }
 
     static double getBalance(int memberNumber) {
         double returnedBalance = 0;
         try {
-
+            AtmBackend a = new AtmBackend();
+            a.connectDb();
             statement = connection.createStatement();
             java.sql.CallableStatement callable = connection.prepareCall("{CALL selectMember(?)}");
             callable.setInt(1, memberNumber);
@@ -117,7 +82,8 @@ public class DbHelper {
     static boolean withdrawFunds(int memberNumber, double moneyOut) {
         boolean isSuccessfull = false;
         try {
-
+            AtmBackend a = new AtmBackend();
+            a.connectDb();
             double currentBalance;
             statement = connection.createStatement();
             java.sql.CallableStatement callable = connection.prepareCall("{CALL selectMember(?)}");
@@ -155,6 +121,8 @@ public class DbHelper {
 
     static void showTable() {
         try {
+            AtmBackend a = new AtmBackend();
+            a.connectDb();
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM membersTable");
 
