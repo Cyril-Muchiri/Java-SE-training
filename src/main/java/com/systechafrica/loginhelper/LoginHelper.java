@@ -13,20 +13,17 @@ public class LoginHelper {
     ResultSet resultSet;
     boolean isOwner;
 
-    public boolean checkUserCredentials(int customerNumber, String password) {
-
+    public boolean checkUserCredentials(String password) {
         try {
-
             statement = connection.createStatement();
             callableStatement = connection.prepareCall("{CALL selectMember(?)}");
-            callableStatement.setInt(1, customerNumber);
+           callableStatement.setString(1,password);
             resultSet = callableStatement.executeQuery();
         
             while (resultSet.next()) {
-                int storedNumber = resultSet.getInt(1);
                 String storedPassword = resultSet.getString(2);
 
-                if (storedNumber == customerNumber && storedPassword.equals(password)) {
+                if (storedPassword.equals(password)) {
                     isOwner = true;
 
                 } else {

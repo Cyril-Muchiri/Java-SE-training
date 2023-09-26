@@ -32,7 +32,7 @@ public class Atm extends Thread {
             scanner.nextLine();
             System.out.println("Enter customer password : ");
             suppliedPass = scanner.nextLine();
-            if (helper.checkUserCredentials(customerInput, suppliedPass)) {
+            if (helper.checkUserCredentials(suppliedPass)) {
                 currentMemberNumber = customerInput;
                 displayMenu();
                 count = 0;

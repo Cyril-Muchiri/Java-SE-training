@@ -4,10 +4,14 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 import com.systechafrica.customexceptions.InvalidInputException;
+import com.systechafrica.dbconfig.DbConnector;
 import com.systechafrica.dbloggers.FileLogger;
 import com.systechafrica.loginhelper.LoginHelper;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 public class PosReviewed {
+    Dotenv dotenv= Dotenv.configure().load();
     private Scanner posScanner = new Scanner(System.in);
     private Logger logger = FileLogger.getLogger();
     String suppliedPwd;
@@ -21,12 +25,13 @@ public class PosReviewed {
     private int userItemQuantity[] = new int[itemObj.mem];
 
     boolean login() {
+        DbConnector.setDB_URL(dotenv.get("POS_URL"));
         LoginHelper login = new LoginHelper();
         int attepmts = 3;
         while (attepmts != 0) {
             System.out.println("Enter Password: ");
             suppliedPwd = posScanner.nextLine();
-            if (login.checkUserCredentials(suppliedMemberNumber, suppliedPwd)) {
+            if (login.checkUserCredentials(suppliedPwd)) {
                 logger.info("Db login successfull");
                 isLoggedIn = true;
                 attepmts = 0;

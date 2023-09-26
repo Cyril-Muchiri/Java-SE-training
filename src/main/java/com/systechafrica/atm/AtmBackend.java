@@ -27,7 +27,6 @@ public class AtmBackend {
         try {
             statement.close();
             connection.close();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -115,7 +114,6 @@ public class AtmBackend {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return isSuccessfull;
     }
 
@@ -132,7 +130,6 @@ public class AtmBackend {
                 System.out.println(data);
             }
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             System.out.println("unexpected error occured!!");
         }
     }
