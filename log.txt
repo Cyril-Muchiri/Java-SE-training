@@ -1,14 +1,5 @@
-Sep 26, 2023 1:09:07 AM com.systechafrica.pos.PosReviewed login
-WARNING: Db login Attempt failed!!
-Sep 26, 2023 1:09:13 AM com.systechafrica.pos.PosReviewed login
-WARNING: Db login Attempt failed!!
-Sep 26, 2023 1:09:22 AM com.systechafrica.pos.PosReviewed login
-INFO: Db login successfull
-Sep 26, 2023 1:09:26 AM com.systechafrica.pos.PosReviewed displayMenu
-WARNING: Invalid input type. Please enter a valid choice.
-Sep 26, 2023 1:09:40 AM com.systechafrica.pos.PosReviewed displayMenu
-INFO: user disconnected from db
-2023-09-26 08:48:34|WARNING|com.systechafrica.pos.PosReviewed login|Db login Attempt failed!!2023-09-26 08:49:03|INFO|com.systechafrica.pos.PosReviewed login|Db login successfull2023-09-26 08:49:05|INFO|com.systechafrica.pos.PosReviewed displayMenu|user disconnected from db2023-09-26 08:50:25|WARNING|com.systechafrica.pos.PosReviewed login|Db login Attempt failed!!
-2023-09-26 08:50:41|WARNING|com.systechafrica.pos.PosReviewed login|Db login Attempt failed!!
-2023-09-26 08:51:01|INFO|com.systechafrica.pos.PosReviewed login|Db login successfull
-2023-09-26 08:51:08|INFO|com.systechafrica.pos.PosReviewed displayMenu|user disconnected from db
+2023-09-26 09:35:59 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-26 09:36:05 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-26 09:36:24 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-26 09:36:37 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-09-26 09:36:55 | INFO | com.systechafrica.pos.PosReviewed displayMenu | user disconnected from db
