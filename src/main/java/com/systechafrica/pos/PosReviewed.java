@@ -67,7 +67,6 @@ public class PosReviewed {
             int choice = posScanner.nextInt();
 
             switch (choice) {
-
                 case 1:
                     addItem();
                     break;
@@ -125,6 +124,7 @@ public class PosReviewed {
         double finalTotals = 0;
         double totalPrice;
         double customerAmount;
+        PosBackend backend=new PosBackend();
 
         for (int i = 0; i < itemObj.mem; i++) {
             if (userItemCode[i] != 0) {
@@ -134,6 +134,8 @@ public class PosReviewed {
                 finalTotals += totalPrice;
             }
         }
+        backend.connectToDb();
+        backend.postToDb(finalTotals);
         System.out.println("*****************************************************");
         System.out.println("TOTAL   - " + finalTotals + " ksh");
         System.out.println("******************************************");
@@ -173,6 +175,5 @@ public class PosReviewed {
         } else {
             System.out.println("CAN'T CONTINUE TOO MANY FAILED ATTEMPTS !!");
         }
-
     }
 }

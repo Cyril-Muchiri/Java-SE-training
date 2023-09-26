@@ -2,7 +2,6 @@ package com.systechafrica.atm;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Logger;
@@ -17,7 +16,6 @@ public class AtmBackend {
     final String DB_USER = dotenv.get("DB_USER");
     final String DB_PASS = dotenv.get("DB_PASS");
     static Connection connection;
-    static PreparedStatement preparedStatement;
     static ResultSet resultSet;
     static java.sql.Statement statement;
     static boolean isOwner;

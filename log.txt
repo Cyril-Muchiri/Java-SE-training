@@ -14,3 +14,9 @@
 2023-09-26 19:54:21 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
 2023-09-26 19:54:34 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
 2023-09-26 19:54:44 | INFO | com.systechafrica.pos.PosReviewed displayMenu | user disconnected from db
+2023-09-26 21:33:41 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-26 21:37:10 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-26 21:40:16 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-26 21:42:21 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-26 21:42:34 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-26 21:42:44 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
