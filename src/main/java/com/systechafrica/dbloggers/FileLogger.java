@@ -1,7 +1,6 @@
 package com.systechafrica.dbloggers;
 
-
-    import java.io.IOException;
+import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -12,7 +11,7 @@ public class FileLogger {
     static {
         try {
             FileHandler fileHandler = new FileHandler("log.txt");
-            fileHandler.setFormatter(new SimpleFormatter());
+            fileHandler.setFormatter(new CustomFormatter());
             logger.addHandler(fileHandler);
         } catch (IOException e) {
             e.printStackTrace();
@@ -23,5 +22,3 @@ public class FileLogger {
         return logger;
     }
 }
-
-
