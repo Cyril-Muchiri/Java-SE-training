@@ -20,3 +20,4 @@
 2023-09-26 21:42:21 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
 2023-09-26 21:42:34 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
 2023-09-26 21:42:44 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-27 10:25:20 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull

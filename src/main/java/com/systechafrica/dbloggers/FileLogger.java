@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 public class FileLogger {
     private static final Logger logger = Logger.getLogger(FileLogger.class.getName());
 
-    static {
+    static{
         try {
             File file = new File("log.txt");
             FileHandler fileHandler;
@@ -26,7 +26,6 @@ public class FileLogger {
             e.printStackTrace();
         }
     }
-
     public static Logger getLogger() {
         return logger;
     }

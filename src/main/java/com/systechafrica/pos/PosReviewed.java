@@ -11,7 +11,7 @@ import com.systechafrica.loginhelper.LoginHelper;
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class PosReviewed {
-    Dotenv dotenv= Dotenv.configure().load();
+    Dotenv dotenv = Dotenv.configure().load();
     private Scanner posScanner = new Scanner(System.in);
     private Logger logger = FileLogger.getLogger();
     String suppliedPwd;
@@ -89,32 +89,40 @@ public class PosReviewed {
     }
 
     private void addItem() {
-        for (int i = 0; i < itemObj.mem; i++) {
-            System.out.print("Enter item code: ");
-            userItemCode[i] = posScanner.nextInt();
+        try {
+            for (int i = 0; i < itemObj.mem; i++) {
+                System.out.print("Enter item code: ");
+                userItemCode[i] = posScanner.nextInt();
 
-            System.out.print("Enter item price: ");
-            userItemPrice[i] = posScanner.nextInt();
+                System.out.print("Enter item price: ");
+                userItemPrice[i] = posScanner.nextInt();
 
-            System.out.print("Enter item quantity: ");
-            userItemQuantity[i] = posScanner.nextInt();
-            posScanner.nextLine();
-            System.out.println("Press 'A' to add more items 'N' to g back to main Menu");
-            String choice = posScanner.nextLine().toUpperCase();
-            switch (choice) {
-                case "A":
-                    break;
-                case "N":
-                    i = itemObj.mem;
-                    displayMenu();
-                    break;
-                default:
-                    System.out.println("Invalid option !!");
-                    i = itemObj.mem;
-                    displayMenu();
-                    break;
+                System.out.print("Enter item quantity: ");
+                userItemQuantity[i] = posScanner.nextInt();
+                posScanner.nextLine();
+                System.out.println("Press 'A' to add more items 'N' to g back to main Menu");
+                String choice = posScanner.nextLine().toUpperCase();
+
+                switch (choice) {
+                    case "A":
+                        break;
+                    case "N":
+                        i = itemObj.mem;
+                        displayMenu();
+                        break;
+                    default:
+                        System.out.println("Invalid option !!");
+                        i = itemObj.mem;
+                        displayMenu();
+                        break;
+                }
             }
+            throw new InvalidInputException("invalid choice please try again!!");
+        } catch (InvalidInputException err) {
+            logger.warning(err.getMessage());
+            displayMenu();
         }
+
     }
 
     private void makePayment() {
@@ -123,7 +131,7 @@ public class PosReviewed {
         double finalTotals = 0;
         double totalPrice;
         double customerAmount;
-        PosBackend backend=new PosBackend();
+        PosBackend backend = new PosBackend();
 
         for (int i = 0; i < itemObj.mem; i++) {
             if (userItemCode[i] != 0) {
