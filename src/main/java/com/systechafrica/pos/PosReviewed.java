@@ -76,7 +76,7 @@ public class PosReviewed {
                     showReceipt();
                     break;
                 case 4:
-                    logger.info("user disconnected from db");
+                  logger.info("user disconnected from db!");
                     System.exit(0);
                 default:
                     System.out.println("Invalid option!!,please try again!!");
@@ -122,7 +122,6 @@ public class PosReviewed {
             logger.warning(err.getMessage());
             displayMenu();
         }
-
     }
 
     private void makePayment() {
@@ -141,27 +140,35 @@ public class PosReviewed {
                 finalTotals += totalPrice;
             }
         }
-        backend.connectToDb();
-        backend.postToDb(finalTotals);
-        System.out.println("*****************************************************");
-        System.out.println("TOTAL   - " + finalTotals + " ksh");
-        System.out.println("******************************************");
-        if (finalTotals == 0) {
-            System.out.println("Nothing to display here!!");
-            displayMenu();
-        } else {
-            System.out.print("Enter amount by customer: ");
-            customerAmount = posScanner.nextInt();
 
-            if (customerAmount >= finalTotals) {
-                System.out.println("Change  - " + (customerAmount - finalTotals) + " ksh");
-                System.out.println("******************************************");
-                System.out.println("THANK YOU FOR SHOPPING WITH US");
-                System.out.println("******************************************");
+        try {
+            backend.connectToDb();
+            backend.postToDb(finalTotals);
+            System.out.println("*****************************************************");
+            System.out.println("TOTAL   - " + finalTotals + " ksh");
+            System.out.println("******************************************");
+            if (finalTotals == 0) {
+                System.out.println("Nothing to display here!!");
+                displayMenu();
             } else {
-                System.out.println("cannot process payment insuficient funds!!!");
+                System.out.print("Enter amount by customer: ");
+                customerAmount = posScanner.nextInt();
+
+                if (customerAmount >= finalTotals) {
+                    System.out.println("Change  - " + (customerAmount - finalTotals) + " ksh");
+                    System.out.println("******************************************");
+                    System.out.println("THANK YOU FOR SHOPPING WITH US");
+                    System.out.println("******************************************");
+                } else {
+                    System.out.println("cannot process payment insuficient funds!!!");
+                }
             }
+            throw new InvalidInputException("Invalid amount entered please enter a number!!");
+        } catch (InvalidInputException err) {
+            logger.warning(err.getMessage());
+            makePayment();
         }
+
     }
 
     void showReceipt() {

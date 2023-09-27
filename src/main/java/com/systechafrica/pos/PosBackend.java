@@ -5,18 +5,23 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.UUID;
+import java.util.logging.Logger;
+
+import com.systechafrica.dbloggers.FileLogger;
+
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class PosBackend {
     Connection connection;
     Statement statement;
+private Logger logger=FileLogger.getLogger();
 
     void connectToDb() {
         try {
             Dotenv dotenv = Dotenv.configure().load();
             connection = DriverManager.getConnection(dotenv.get("POS_URL"), dotenv.get("DB_USER"),
                     dotenv.get("DB_PASS"));
-            System.out.println("successfull connection");
+            // System.out.println("successfull connection");
         } catch (SQLException e) {
             System.out.println("error connecting to DB");
         }
