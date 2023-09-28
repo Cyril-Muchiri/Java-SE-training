@@ -63,3 +63,7 @@
 2023-09-29 00:00:52 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
 2023-09-29 00:03:47 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
 2023-09-29 00:03:52 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-09-29 01:19:04 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-29 01:19:21 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-09-29 01:21:50 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-29 01:22:11 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully

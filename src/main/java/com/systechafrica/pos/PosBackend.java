@@ -29,9 +29,11 @@ public class PosBackend {
             callableStatement.setDouble(2, transactionCost);
             int rowsAffected = callableStatement.executeUpdate();
             if (rowsAffected != 0) {
-                System.out.println("post made successfully");
+                System.out.println("Transaction made successfully");
+                logger.info("Transaction made in the database successfully");
             } else {
                 System.out.println("something went wrong");
+                logger.info("Transaction failed!!");
             }
 
         } catch (SQLException e) {

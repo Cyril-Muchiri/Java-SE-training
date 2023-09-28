@@ -76,7 +76,7 @@ public class PosReviewed {
                     makePayment();
                     break;
                 case 3:
-                    showReceipt(customerAmount,finalTotals);
+                    showReceipt(customerAmount, finalTotals);
                     break;
                 case 4:
                     logger.info("user disconnected from db!");
@@ -153,9 +153,6 @@ public class PosReviewed {
             }
         }
         try {
-            if (finalTotals != 0) {
-                backend.postToDb(finalTotals);
-            }
 
             System.out.println("*****************************************************");
             System.out.println("TOTAL   - " + finalTotals + " ksh");
@@ -173,12 +170,8 @@ public class PosReviewed {
                     if (customerAmount < finalTotals) {
                         System.out.println("cannot process payment insuficient funds!!!");
                     } else {
-                        // System.out.println("Change  - " + (customerAmount - finalTotals) + " ksh");
-                        // System.out.println("******************************************");
-                        // System.out.println("THANK YOU FOR SHOPPING WITH US");
-                        // System.out.println("******************************************");
-                        // finalTotals=0;
-                        showReceipt(customerAmount,finalTotals);
+                        showReceipt(customerAmount, finalTotals);
+                        backend.postToDb(finalTotals);
 
                     }
                 }
@@ -189,17 +182,17 @@ public class PosReviewed {
         }
     }
 
-    void showReceipt(double customerAmount,double finalTotals) {
-        if (finalTotals==0) {
+    void showReceipt(double customerAmount, double finalTotals) {
+        if (finalTotals == 0) {
             System.out.println("No receipt available");
             System.out.println("Add items to cart");
             displayMenu();
         } else {
-             System.out.println("Change  - " + (customerAmount - finalTotals) + " ksh");
-                        System.out.println("******************************************");
-                        System.out.println("THANK YOU FOR SHOPPING WITH US");
-                        System.out.println("******************************************");
-                        
+            System.out.println("Change  - " + (customerAmount - finalTotals) + " ksh");
+            System.out.println("******************************************");
+            System.out.println("THANK YOU FOR SHOPPING WITH US");
+            System.out.println("******************************************");
+
         }
 
     }
