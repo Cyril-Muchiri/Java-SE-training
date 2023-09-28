@@ -12,12 +12,12 @@ public class FileLogger {
         try {
             File file = new File("log.txt");
             FileHandler fileHandler;
-            if (!file.exists()) {
-                fileHandler = new FileHandler("log.txt");
+            if (file.exists()) {
+                fileHandler = new FileHandler("log.txt",true);
                 fileHandler.setFormatter(new CustomFormatter());
                 logger.addHandler(fileHandler);
             } else {
-                fileHandler = new FileHandler("log.txt", true);
+                fileHandler = new FileHandler("log.txt");
                 fileHandler.setFormatter(new CustomFormatter());
                 logger.addHandler(fileHandler);
             }

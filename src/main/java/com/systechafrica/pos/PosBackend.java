@@ -14,23 +14,17 @@ import io.github.cdimascio.dotenv.Dotenv;
 public class PosBackend {
     Connection connection;
     Statement statement;
-private Logger logger=FileLogger.getLogger();
+    java.sql.CallableStatement callableStatement;
+    private Logger logger = FileLogger.getLogger();
 
-    void connectToDb() {
-        try {
+    void postToDb(double transactionCost) throws SQLException {
+        UUID trascationId = UUID.randomUUID();
+        
+        try{
             Dotenv dotenv = Dotenv.configure().load();
             connection = DriverManager.getConnection(dotenv.get("POS_URL"), dotenv.get("DB_USER"),
                     dotenv.get("DB_PASS"));
-            // System.out.println("successfull connection");
-        } catch (SQLException e) {
-            System.out.println("error connecting to DB");
-        }
-    }
-
-    void postToDb(double transactionCost) {
-        UUID trascationId = UUID.randomUUID();
-        try {
-            java.sql.CallableStatement callableStatement = connection.prepareCall("{CALL UPDATEPOSTABLE(?,?)}");
+            callableStatement = connection.prepareCall("{CALL UPDATEPOSTABLE(?,?)}");
             callableStatement.setString(1, trascationId.toString());
             callableStatement.setDouble(2, transactionCost);
             int rowsAffected = callableStatement.executeUpdate();
@@ -42,6 +36,9 @@ private Logger logger=FileLogger.getLogger();
 
         } catch (SQLException e) {
             System.out.println("something went wrong");
+        }finally{
+          callableStatement.close();
+          connection.close();
         }
     }
 }

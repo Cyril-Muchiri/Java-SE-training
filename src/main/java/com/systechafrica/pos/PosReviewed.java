@@ -1,5 +1,7 @@
 package com.systechafrica.pos;
 
+import java.sql.SQLException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
@@ -16,7 +18,8 @@ public class PosReviewed {
     private Logger logger = FileLogger.getLogger();
     String suppliedPwd;
     boolean isLoggedIn;
-    int suppliedMemberNumber;
+    Double customerAmount = 0.0;
+    double finalTotals = 0;
 
     Item itemObj = new Item();
     private int userItemCode[] = new int[itemObj.mem];
@@ -73,10 +76,10 @@ public class PosReviewed {
                     makePayment();
                     break;
                 case 3:
-                    showReceipt();
+                    showReceipt(customerAmount,finalTotals);
                     break;
                 case 4:
-                  logger.info("user disconnected from db!");
+                    logger.info("user disconnected from db!");
                     System.exit(0);
                 default:
                     System.out.println("Invalid option!!,please try again!!");
@@ -90,34 +93,44 @@ public class PosReviewed {
 
     private void addItem() {
         try {
-            for (int i = 0; i < itemObj.mem; i++) {
+            for (int i = 0; i <= itemObj.mem; i++) {
                 System.out.print("Enter item code: ");
-                userItemCode[i] = posScanner.nextInt();
+                if (!posScanner.hasNextInt()) {
+                    throw new InvalidInputException("input ivalid:enter a valid item code-must be anumber");
+                } else {
+                    userItemCode[i] = posScanner.nextInt();
+                }
 
                 System.out.print("Enter item price: ");
-                userItemPrice[i] = posScanner.nextInt();
+                if (!posScanner.hasNextInt()) {
+                    throw new InvalidInputException("input ivalid:enter a valid number for the price");
+                } else {
+                    userItemPrice[i] = posScanner.nextInt();
+                }
 
                 System.out.print("Enter item quantity: ");
+                if (!posScanner.hasNextInt()) {
+                    throw new InputMismatchException("input ivalid:Enter a valid number for quantity");
+                }
                 userItemQuantity[i] = posScanner.nextInt();
                 posScanner.nextLine();
                 System.out.println("Press 'A' to add more items 'N' to g back to main Menu");
-                String choice = posScanner.nextLine().toUpperCase();
 
-                switch (choice) {
-                    case "A":
-                        break;
-                    case "N":
-                        i = itemObj.mem;
-                        displayMenu();
-                        break;
-                    default:
-                        System.out.println("Invalid option !!");
-                        i = itemObj.mem;
-                        displayMenu();
-                        break;
+                if (!posScanner.hasNextLine()) {
+                    throw new InvalidInputException("invalid choice please try again!!");
+                } else {
+                    String choice = posScanner.nextLine().toUpperCase();
+                    switch (choice) {
+                        case "A":
+                            break;
+                        case "N":
+                            i = itemObj.mem;
+                            displayMenu();
+                            break;
+                    }
                 }
             }
-            throw new InvalidInputException("invalid choice please try again!!");
+
         } catch (InvalidInputException err) {
             logger.warning(err.getMessage());
             displayMenu();
@@ -129,7 +142,6 @@ public class PosReviewed {
         System.out.printf("%-15s%-15s%-15s%-15s\n", "Item code", "Quantity", "Unit Price", "Total Value");
         double finalTotals = 0;
         double totalPrice;
-        double customerAmount;
         PosBackend backend = new PosBackend();
 
         for (int i = 0; i < itemObj.mem; i++) {
@@ -140,45 +152,56 @@ public class PosReviewed {
                 finalTotals += totalPrice;
             }
         }
-
         try {
-            backend.connectToDb();
-            backend.postToDb(finalTotals);
+            if (finalTotals != 0) {
+                backend.postToDb(finalTotals);
+            }
+
             System.out.println("*****************************************************");
             System.out.println("TOTAL   - " + finalTotals + " ksh");
             System.out.println("******************************************");
+
             if (finalTotals == 0) {
                 System.out.println("Nothing to display here!!");
                 displayMenu();
             } else {
                 System.out.print("Enter amount by customer: ");
-                customerAmount = posScanner.nextInt();
-
-                if (customerAmount >= finalTotals) {
-                    System.out.println("Change  - " + (customerAmount - finalTotals) + " ksh");
-                    System.out.println("******************************************");
-                    System.out.println("THANK YOU FOR SHOPPING WITH US");
-                    System.out.println("******************************************");
+                if (!posScanner.hasNextInt()) {
+                    throw new InvalidInputException("invalid number entered!please enter a number!!");
                 } else {
-                    System.out.println("cannot process payment insuficient funds!!!");
+                    customerAmount = posScanner.nextDouble();
+                    if (customerAmount < finalTotals) {
+                        System.out.println("cannot process payment insuficient funds!!!");
+                    } else {
+                        // System.out.println("Change  - " + (customerAmount - finalTotals) + " ksh");
+                        // System.out.println("******************************************");
+                        // System.out.println("THANK YOU FOR SHOPPING WITH US");
+                        // System.out.println("******************************************");
+                        // finalTotals=0;
+                        showReceipt(customerAmount,finalTotals);
+
+                    }
                 }
             }
-            throw new InvalidInputException("Invalid amount entered please enter a number!!");
-        } catch (InvalidInputException err) {
-            logger.warning(err.getMessage());
-            makePayment();
-        }
 
+        } catch (SQLException | InvalidInputException err) {
+            logger.warning(err.getMessage());
+        }
     }
 
-    void showReceipt() {
-        if (itemObj.equals(null)) {
+    void showReceipt(double customerAmount,double finalTotals) {
+        if (finalTotals==0) {
             System.out.println("No receipt available");
             System.out.println("Add items to cart");
             displayMenu();
         } else {
-            makePayment();
+             System.out.println("Change  - " + (customerAmount - finalTotals) + " ksh");
+                        System.out.println("******************************************");
+                        System.out.println("THANK YOU FOR SHOPPING WITH US");
+                        System.out.println("******************************************");
+                        
         }
+
     }
 
     public static void main(String[] args) {

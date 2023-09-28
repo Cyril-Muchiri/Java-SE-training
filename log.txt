@@ -25,3 +25,41 @@
 2023-09-27 10:48:09 | INFO | com.systechafrica.pos.PosReviewed displayMenu | user disconnected from db
 2023-09-27 10:54:25 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
 2023-09-27 10:54:28 | INFO | com.systechafrica.pos.PosReviewed displayMenu | user disconnected from db!
+2023-09-28 13:23:25 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-28 13:24:16 | WARNING | com.systechafrica.pos.PosReviewed makePayment | Invalid amount entered please enter a number!!
+2023-09-28 13:24:28 | WARNING | com.systechafrica.pos.PosReviewed makePayment | Invalid amount entered please enter a number!!
+2023-09-28 13:27:06 | WARNING | com.systechafrica.pos.PosReviewed makePayment | Invalid amount entered please enter a number!!
+2023-09-28 13:44:33 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-28 13:49:32 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-28 13:59:26 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-28 13:59:40 | WARNING | com.systechafrica.pos.PosReviewed addItem | invalid choice please try again!!
+2023-09-28 14:00:03 | INFO | com.systechafrica.pos.PosReviewed displayMenu | user disconnected from db!
+2023-09-28 14:00:12 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-09-28 14:00:15 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-28 23:14:28 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-28 23:14:32 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-09-28 23:14:55 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:14:55 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:14:55 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:14:55 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:14:55 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:15:07 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:15:08 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:15:08 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:15:08 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:15:08 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:15:08 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:15:08 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:17:01 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-28 23:17:56 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:17:56 | WARNING | com.systechafrica.pos.PosReviewed addItem | invalid choice please try again!!
+2023-09-28 23:17:56 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-09-28 23:18:34 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-09-28 23:18:44 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
+2023-09-28 23:30:26 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-28 23:32:09 | WARNING | com.systechafrica.pos.PosReviewed addItem | invalid choice please try again!!
+2023-09-28 23:44:57 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-28 23:45:38 | WARNING | com.systechafrica.pos.PosReviewed addItem | invalid choice please try again!!
+2023-09-29 00:00:52 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-29 00:03:47 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-09-29 00:03:52 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
