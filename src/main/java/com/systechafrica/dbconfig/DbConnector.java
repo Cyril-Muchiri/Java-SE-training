@@ -50,4 +50,11 @@ public class DbConnector {
     public Connection getConnection() {
         return this.connection;
     }
+    public static void closeConnection(){
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -172,7 +172,6 @@ public class PosReviewed {
                     } else {
                         showReceipt(customerAmount, finalTotals);
                         backend.postToDb(finalTotals);
-
                     }
                 }
             }
@@ -192,6 +191,7 @@ public class PosReviewed {
             System.out.println("******************************************");
             System.out.println("THANK YOU FOR SHOPPING WITH US");
             System.out.println("******************************************");
+            posScanner.close();
 
         }
 
