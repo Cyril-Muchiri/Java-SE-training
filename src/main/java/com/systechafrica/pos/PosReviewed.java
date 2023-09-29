@@ -9,7 +9,6 @@ import com.systechafrica.customexceptions.InvalidInputException;
 import com.systechafrica.dbconfig.DbConnector;
 import com.systechafrica.dbloggers.FileLogger;
 import com.systechafrica.loginhelper.LoginHelper;
-
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class PosReviewed {
