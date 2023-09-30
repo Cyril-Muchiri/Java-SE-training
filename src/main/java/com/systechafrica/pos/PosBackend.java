@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.UUID;
 import java.util.logging.Logger;
-
 import com.systechafrica.dbconfig.DbConnector;
 import com.systechafrica.dbloggers.FileLogger;
 
