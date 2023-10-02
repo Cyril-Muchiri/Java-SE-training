@@ -38,6 +38,7 @@ public class DbConnector {
             connector = new DbConnector(connection);
             System.out.println("connected to db successfully");
         } catch (ClassNotFoundException | SQLException e) {
+            System.out.println("Connection error to the DB!!");
             e.printStackTrace();
         }
         return connector;

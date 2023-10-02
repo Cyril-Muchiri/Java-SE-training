@@ -78,3 +78,15 @@
 2023-09-30 12:51:29 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
 2023-09-30 12:51:34 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
 2023-09-30 12:52:08 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-10-02 09:26:30 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-10-02 09:26:48 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-10-02 09:29:46 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-02 09:30:00 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-02 09:30:02 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-02 09:30:19 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-10-02 09:30:21 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-10-02 09:30:30 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-10-02 09:30:31 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-10-02 09:30:32 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-10-02 09:30:32 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
+2023-10-02 09:31:12 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully

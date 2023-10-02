@@ -22,8 +22,8 @@ public class PosReviewed {
 
     Item itemObj = new Item();
     private int userItemCode[] = new int[itemObj.mem];
-    private int userItemPrice[] = new int[itemObj.mem];
-    private int userItemQuantity[] = new int[itemObj.mem];
+    private double userItemPrice[] = new double[itemObj.mem];
+    private double userItemQuantity[] = new double[itemObj.mem];
 
     boolean login() {
         DbConnector.setDB_URL(dotenv.get("POS_URL"));
@@ -101,17 +101,17 @@ public class PosReviewed {
                 }
 
                 System.out.print("Enter item price: ");
-                if (!posScanner.hasNextInt()) {
+                if (!posScanner.hasNextDouble()) {
                     throw new InvalidInputException("input ivalid:enter a valid number for the price");
                 } else {
-                    userItemPrice[i] = posScanner.nextInt();
+                    userItemPrice[i] = posScanner.nextDouble();
                 }
 
                 System.out.print("Enter item quantity: ");
-                if (!posScanner.hasNextInt()) {
+                if (!posScanner.hasNextDouble()) {
                     throw new InputMismatchException("input ivalid:Enter a valid number for quantity");
                 }
-                userItemQuantity[i] = posScanner.nextInt();
+                userItemQuantity[i] = posScanner.nextDouble();
                 posScanner.nextLine();
                 System.out.println("Press 'A' to add more items 'N' to g back to main Menu");
 
