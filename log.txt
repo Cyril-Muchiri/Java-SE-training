@@ -49,7 +49,6 @@
 2023-09-28 23:15:08 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
 2023-09-28 23:15:08 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
 2023-09-28 23:15:08 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
-2023-09-28 23:15:08 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
 2023-09-28 23:17:01 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
 2023-09-28 23:17:56 | WARNING | com.systechafrica.pos.PosReviewed makePayment | null
 2023-09-28 23:17:56 | WARNING | com.systechafrica.pos.PosReviewed addItem | invalid choice please try again!!
