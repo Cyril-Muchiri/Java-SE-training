@@ -1,7 +1,5 @@
 package com.systechafrica.part2.accessmodifiers;
 
-
-
 public class Employee {
     private String name;
     private String id;
@@ -13,8 +11,6 @@ public class Employee {
         this.id = id;
         this.isAvailable = isAvailable;
     }
-
-    
 
     public String getName() {
         return name;
@@ -40,14 +36,9 @@ public class Employee {
         this.isAvailable = isAvailable;
     }
 
-
-
     @Override
     public String toString() {
         return "Employee [name=" + name + ", id=" + id + ", email=" + email + ", isAvailable=" + isAvailable + "]";
     }
-
-    
-  
 
 }
