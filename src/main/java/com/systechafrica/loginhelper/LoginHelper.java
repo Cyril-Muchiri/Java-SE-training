@@ -7,13 +7,12 @@ import com.systechafrica.dbconfig.DbConnector;
 
 public class LoginHelper {
     java.sql.CallableStatement callableStatement;
-    DbConnector connector = DbConnector.createConnector();
     ResultSet resultSet;
     boolean isOwner;
 
     public boolean checkUserCredentials(String password) {
         try {
-            callableStatement = connector.getConnection().prepareCall("{CALL selectMember(?)}");
+            callableStatement=DbConnector.createConnector().getConnection().prepareCall("{CALL selectMember(?)}");
             callableStatement.setString(1, password);
             resultSet = callableStatement.executeQuery();
 
