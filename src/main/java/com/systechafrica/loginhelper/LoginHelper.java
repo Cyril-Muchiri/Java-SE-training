@@ -29,8 +29,12 @@ public class LoginHelper {
             }
         } catch (SQLException e) {
             System.out.println("something went terribly wrong");
+        } finally {
+            DbConnector.closeConnection();
         }
+
         return isOwner;
+
     }
 
 }
