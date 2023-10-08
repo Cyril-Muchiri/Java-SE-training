@@ -14,10 +14,13 @@ public class Main {
 
     public static void main(String[] args) {
         Main main = new Main();
+        UnusedMethod md=new UnusedMethod();
+
         try {
             main.divide();
+            md.sum(10, 12,13,14 ,15);
         } catch (CustomException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
        
     }
