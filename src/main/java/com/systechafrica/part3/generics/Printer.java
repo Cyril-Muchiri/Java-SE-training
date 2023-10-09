@@ -9,5 +9,8 @@ public class Printer {
         System.out.println(printer.print());
         System.out.println(printer2.print());
         System.out.println(printer3.print());
+
+        GenericPrinter.print("Manure");
+        GenericPrinter.print(100000);
     }
 }

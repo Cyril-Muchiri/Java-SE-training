@@ -10,4 +10,9 @@ public class GenericPrinter<Thing> {
     public Thing print() {
         return thingToPrint;
     }
+
+    // generic method
+    public static <Thing> void print(Thing thing) {
+        System.out.println(thing + " was printed");
+    }
 }
