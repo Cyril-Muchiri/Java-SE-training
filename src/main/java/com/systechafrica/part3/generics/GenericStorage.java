@@ -12,7 +12,7 @@ public class GenericStorage<Thing> {
 
     // *This is a generic method takes an item as a prameter */
     public  Thing store(Thing thing,double quantity) {
-        System.out.println(thing.toString()+" stored of "+quantity+" Kgs");
+        // System.out.println(thing.toString()+" stored of "+quantity+" Kgs");
         return thing;
     }
 }

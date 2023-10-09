@@ -7,25 +7,25 @@ public class SimpleDemo {
         String[] names = { "John", "Cate", "Luis", "Karen" };
         Character[] alphabet = { 'a', 'b', 'c', 'd' };
 
+        
+
         displayArray(numbers);
         displayArray(names);
         displayArray(alphabet);
-System.out.println("");
-        GenericStorage store1=new GenericStorage<>();
+        System.out.println("");
+        GenericStorage store1 = new GenericStorage<>();
 
-        Grocery maize=new Grocery();
+        Grocery maize = new Grocery();
         maize.setGroceryQuantity(200);
-        Grocery beans= new Grocery();
+        Grocery beans = new Grocery();
         beans.setGroceryQuantity(100);
 
-        store1.store(beans,beans.getGroceryQuantity());
-        store1.store(maize,maize.getGroceryQuantity());
+        store1.store(beans, beans.getGroceryQuantity());
+        store1.store(maize, maize.getGroceryQuantity());
 
-
+        
 
     }
-
-   
 
     <SomeGroceries> void displayGrocery(Grocery[] item) {
         for (Grocery someGrocery : item) {
