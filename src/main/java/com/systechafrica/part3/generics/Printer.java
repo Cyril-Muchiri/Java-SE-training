@@ -12,5 +12,6 @@ public class Printer {
 
         GenericPrinter.print("Manure");
         GenericPrinter.print(100000);
+        GenericPrinter.print("Gas", 420);
     }
 }
