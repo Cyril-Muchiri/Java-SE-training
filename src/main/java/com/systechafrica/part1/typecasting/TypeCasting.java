@@ -6,7 +6,7 @@ public class TypeCasting {
         byte myByte = 2;
         short myShort = 3;
         int myInt = 4;
-        long myLong = 5;
+        long myLong = 5555555555555555555l;
         float myFloat = 6.0f;
         double myDouble = 10.0;
 
@@ -17,7 +17,7 @@ public class TypeCasting {
         // myFloat = myLong;
         myDouble=myFloat+myLong+myInt+myShort;
         
-        System.out.println(myDouble);
+        System.out.println(myLong);
     }
 
 }
