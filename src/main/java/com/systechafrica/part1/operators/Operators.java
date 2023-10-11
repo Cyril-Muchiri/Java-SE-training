@@ -30,7 +30,7 @@ public class Operators {
         // int k= ++i;
 
         // System.out.println(" : "+i+j+k);
-        System.out.println(++i);
+        System.out.println(++i+5+(++i));
        
     }
 
