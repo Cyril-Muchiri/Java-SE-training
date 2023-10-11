@@ -15,9 +15,11 @@ public class TypeCasting {
         // myInt = myShort + myByte;
         // myLong = myInt;
         // myFloat = myLong;
-        myDouble=myFloat+myLong+myInt+myShort;
+        // myDouble=myFloat+myLong+myInt+myShort;
+
+        myShort=myByte;
         
-        System.out.println(myLong);
+        System.out.println(myInt);
     }
 
 }
