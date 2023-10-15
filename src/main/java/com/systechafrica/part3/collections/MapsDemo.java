@@ -16,6 +16,17 @@ public class MapsDemo {
         capitalCity.put(Tanzania.toString(), " Dar-es-salam");
         capitalCity.put(Uganda.toString(), " Kampala");
 
+        //?getting from a map
+        System.out.println(capitalCity.get(Kenya.toString()));
+
+        //?contains value/key -> boolean
+        System.out.println(capitalCity.containsKey(Tanzania.toString()));
+        System.out.println(capitalCity.containsValue(Kenya));
+
+        //?put if absent
+        capitalCity.putIfAbsent(new Country("Rwanda"), " Kigali");
+
+
         System.out.println(capitalCity);
 
     }
