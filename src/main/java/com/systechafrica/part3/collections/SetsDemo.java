@@ -1,11 +1,30 @@
 package com.systechafrica.part3.collections;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class SetsDemo {
 
     public static void main(String[] args) {
+
+        List<Integer> numberList = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            numberList.add(i);
+            numberList.add(i - 1);
+        }
+
+        System.out.println("This is the list with duplicates");
+        numberList.forEach(System.out::println);
+
+        System.out.println("This is the size of our numberList: " + numberList.size());
+
+        Set<Integer> nonDupIntegers = new HashSet<>(numberList);
+        System.out.println("This is the list after duplicates are deleted");
+        for (Integer integer : nonDupIntegers) {
+            System.out.println(integer +"*");
+        }
 
         Set<Object> setOfNames = new HashSet<>();
 
