@@ -4,15 +4,17 @@ import java.util.LinkedList;
 
 public class LinkedListDemo {
     public static void main(String[] args) {
-        LinkedList<Object> list=new LinkedList<>();
+        LinkedList<Object> list = new LinkedList<>();
 
         list.add(100);
         list.add("Cat");
         list.add(90.893);
         list.add('C');
 
-        //*Can accept duplicates */
-        //*follow insertion order */
+        // *Can accept duplicates */
+        // *follow insertion order */
+        list.remove();//removes first element
+        System.out.println(list);
 
     }
 }
