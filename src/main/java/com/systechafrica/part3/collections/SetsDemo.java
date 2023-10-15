@@ -2,8 +2,10 @@ package com.systechafrica.part3.collections;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class SetsDemo {
 
@@ -21,12 +23,16 @@ public class SetsDemo {
         System.out.println("This is the size of our numberList: " + numberList.size());
 
         Set<Integer> nonDupIntegers = new HashSet<>(numberList);
+
         System.out.println("This is the list after duplicates are deleted");
         for (Integer integer : nonDupIntegers) {
-            System.out.println(integer +"*");
+            System.out.println(integer + "*");
         }
 
         Set<Object> setOfNames = new HashSet<>();
+        // Set<Object> setOfNames = new TreeSet<>();//? output follows a natural order
+        // Set<Object> setOfNames = new LinkedHashSet()<>();//? output follows insertion
+        // order
 
         StringBuilder sergernt = new StringBuilder("Kimaiyu");
         // ?sets do not allow duplicates
