@@ -28,6 +28,7 @@ public class LoginHelper {
             }
         } catch (SQLException e) {
             System.out.println("something went terribly wrong");
+            e.printStackTrace();
         } finally {
             DbConnector.closeConnection();
         }

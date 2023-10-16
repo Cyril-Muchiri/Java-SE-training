@@ -115,10 +115,11 @@ public class PosReviewed {
                 posScanner.nextLine();
                 System.out.println("Press 'A' to add more items 'N' to g back to main Menu");
 
-                if (!posScanner.hasNextLine()) {
+                if (posScanner.hasNextDouble()) {
                     throw new InvalidInputException("invalid choice please try again!!");
                 } else {
                     String choice = posScanner.nextLine().toUpperCase();
+
                     switch (choice) {
                         case "A":
                             break;
