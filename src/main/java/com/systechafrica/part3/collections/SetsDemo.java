@@ -18,15 +18,15 @@ public class SetsDemo {
         }
 
         System.out.println("This is the list with duplicates");
-        numberList.forEach(System.out::println);
+        // numberList.forEach(System.out::println);
 
         System.out.println("This is the size of our numberList: " + numberList.size());
 
-        Set<Integer> nonDupIntegers = new HashSet<>(numberList);
+        Set<Integer> nonDupIntegers = new HashSet<>(numberList);// no duplicates
 
         System.out.println("This is the list after duplicates are deleted");
         for (Integer integer : nonDupIntegers) {
-            System.out.println(integer + "*");
+            // System.out.println(integer + "*");
         }
 
         Set<Object> setOfNames = new HashSet<>();
@@ -41,7 +41,8 @@ public class SetsDemo {
         setOfNames.add(sergernt);
         setOfNames.add(100);
         setOfNames.add("Constable");
-
+        System.out.println("hashset out");
+        System.out.println(setOfNames);
         setOfNames.remove("Kimani");
         int length = setOfNames.size();
         // setOfNames.clear();//clears all elements in the set
