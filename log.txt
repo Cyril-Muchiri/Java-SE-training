@@ -89,3 +89,6 @@
 2023-10-02 09:30:32 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
 2023-10-02 09:30:32 | WARNING | com.systechafrica.pos.PosReviewed displayMenu | Invalid input type. Please enter a valid choice.
 2023-10-02 09:31:12 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-10-16 14:04:41 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-16 14:05:27 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-16 14:05:29 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
