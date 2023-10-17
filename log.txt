@@ -108,3 +108,5 @@
 2023-10-17 21:21:56 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
 2023-10-17 21:22:07 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
 2023-10-17 21:22:46 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-10-17 21:30:58 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-10-17 21:31:17 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
