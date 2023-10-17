@@ -18,6 +18,7 @@ public class FilesDemo {
             System.out.println("exists!!");
             try {
                 BufferedReader reader = new BufferedReader(new FileReader(sample));
+                System.out.println(fileSeparator);
                 String line;
                 while ((line = reader.readLine()) != null) {
                     System.out.println(line);
@@ -27,7 +28,7 @@ public class FilesDemo {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else{
+        } else {
             System.out.println("does not exist!");
         }
     }

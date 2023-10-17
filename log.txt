@@ -105,3 +105,6 @@
 2023-10-16 14:57:40 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
 2023-10-16 14:57:51 | WARNING | com.systechafrica.pos.PosReviewed addItem | invalid choice please try again!!
 2023-10-16 14:58:10 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-10-17 21:21:56 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-17 21:22:07 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-10-17 21:22:46 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
