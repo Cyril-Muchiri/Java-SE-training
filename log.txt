@@ -110,3 +110,8 @@
 2023-10-17 21:22:46 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
 2023-10-17 21:30:58 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
 2023-10-17 21:31:17 | INFO | com.systechafrica.pos.PosBackend postToDb | Transaction made in the database successfully
+2023-10-20 07:05:29 | INFO | com.systechafrica.pos.PosReviewed login | Db login successfull
+2023-10-20 07:05:38 | INFO | com.systechafrica.pos.PosReviewed displayMenu | user disconnected from db!
+2023-10-20 07:05:47 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-20 07:05:51 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!
+2023-10-20 07:05:52 | WARNING | com.systechafrica.pos.PosReviewed login | Db login Attempt failed!!

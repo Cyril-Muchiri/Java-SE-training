@@ -199,8 +199,8 @@ public class PosReviewed {
 
     public static void main(String[] args) {
         PosReviewed pos = new PosReviewed();
-        pos.login();
-        if (pos.isLoggedIn) {
+        // pos.login();
+        if (pos.login()) {
             pos.displayMenu();
         } else {
             System.out.println("CAN'T CONTINUE TOO MANY FAILED ATTEMPTS !!");

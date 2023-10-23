@@ -55,7 +55,7 @@ public class SetsDemo {
         System.out.println("This is by using a for each method and lambda");
         setOfNames.forEach(System.out::println);
 
-        // using an interator interface
+        // using an iterator interface
         System.out.println("This is by using an iterator");
         java.util.Iterator<Object> objIterator = setOfNames.iterator();
         while (objIterator.hasNext()) {
