@@ -142,7 +142,7 @@ public class PosReviewed {
         System.out.printf("%-15s%-15s%-15s%-15s\n", "Item code", "Quantity", "Unit Price", "Total Value");
         double finalTotals = 0;
         double totalPrice;
-        PosBackend backend = new Pos
+        PosBackend backend = new PosBackend();
         for (int i = 0; i < itemObj.mem; i++) {
             if (userItemCode[i] != 0) {
                 totalPrice = userItemQuantity[i] * userItemPrice[i];

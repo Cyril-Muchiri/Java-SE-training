@@ -12,11 +12,9 @@ public class LambdaDemo {
         generalItems.add(new String("Thesis"));
         generalItems.add(10000);
 
-        Iterator iter=generalItems.iterator();
+        // Iterator iter=generalItems.iterator();
 
-        while(iter.next()){
-            
-        }        
+       
 
     }
 }
