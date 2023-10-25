@@ -18,7 +18,6 @@ interface App {
 //     }
     
 // };
-        
         App obj = i->System.out.println("In the show method "+i);
         obj.show(10);
         
